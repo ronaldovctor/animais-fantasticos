@@ -181,6 +181,15 @@ body .copy p {
   -webkit-animation: slideDown 0.3s ease-in-out forwards;
           animation: slideDown 0.3s ease-in-out forwards;
 }
+.js .grid-section.js-scroll {
+  opacity: 0;
+  transform: translate(-30px, 0);
+  transition: 0.4s;
+}
+.js .grid-section.js-scroll.active {
+  opacity: 1;
+  transform: translate(0, 0);
+}
 
 @media (max-width: 700px) {
   body {
