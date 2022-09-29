@@ -4,7 +4,8 @@ function initTabNav() {
 
 	function activeTab(index) {
 		cleanTab()
-		tabContent[index].classList.add('active')
+		const direction = tabContent[index].dataset.anime
+		tabContent[index].classList.add('active', direction)
 	}
 
 	function cleanTab() {
