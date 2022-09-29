@@ -1,6 +1,6 @@
 function initTabNav() {
-	const tabMenu = document.querySelectorAll('.js-tabmenu li')
-	const tabContent = document.querySelectorAll('.js-tabcontent section')
+	const tabMenu = document.querySelectorAll('[data-tab="menu"] li')
+	const tabContent = document.querySelectorAll('[data-tab="content"] section')
 
 	function activeTab(index) {
 		cleanTab()
@@ -20,7 +20,7 @@ function initTabNav() {
 }
 
 function initAccordion() {
-	const accordionList = document.querySelectorAll('.js-accordion dt')
+	const accordionList = document.querySelectorAll('[data-anime="accordion"] dt')
 	accordionList.forEach((item) => {
 		item.addEventListener('click', activeAccordion)
 	})
@@ -57,7 +57,7 @@ function initScroolToSection() {
 }
 
 function initScrollAnimation() {
-	const sections = document.querySelectorAll('.js-scroll')
+	const sections = document.querySelectorAll('[data-anime="scroll"]')
 
 	function animaScroll(element) {
 		element.classList.add('active')
