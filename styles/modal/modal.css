@@ -1,0 +1,84 @@
+.modal-container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: none;
+}
+.modal-container.active {
+  display: flex;
+}
+.modal-container.active .modal {
+  -webkit-animation: modal 0.15s linear forwards;
+          animation: modal 0.15s linear forwards;
+}
+.modal-container .modal {
+  position: relative;
+  background: white;
+  padding: 40px;
+  border: 10px solid #fb5;
+  box-shadow: 0 0 0 10px white;
+  min-width: 350px;
+}
+.modal-container .modal .close {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 50px;
+  height: 50px;
+  border: 4px solid white;
+  border-radius: 50%;
+  background: #e54;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+  font-size: 1.2rem;
+  color: white;
+  cursor: pointer;
+}
+.modal-container .modal label {
+  display: block;
+  margin: 1rem 0 0.5rem 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: bold;
+}
+.modal-container .modal input {
+  width: 100%;
+  padding: 0.7rem 0.5rem;
+}
+.modal-container .modal button[type=submit] {
+  display: block;
+  background: #e54;
+  border-radius: 4px;
+  padding: 0.7rem 2rem;
+  font-size: 1rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: bold;
+  color: white;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+@-webkit-keyframes modal {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes modal {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}/*# sourceMappingURL=modal.css.map */

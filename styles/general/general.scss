@@ -13,7 +13,11 @@ ul {
 	list-style: none;
 }
 
-body {
+button {
+	border: none;
+}
+
+.grid-container {
 	background: #faf6ed;
 	color: #222;
 	display: grid;
@@ -235,7 +239,7 @@ body {
 }
 
 @media (max-width: 700px) {
-	body {
+	.grid-container {
 		grid-template-columns: 1fr;
 
 		.menu,
