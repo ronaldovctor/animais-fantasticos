@@ -6,7 +6,7 @@ export function initScrollAnimation() {
 	}
 
 	function removeAnima(element) {
-		element.classList.remove('active')
+		if (element.classList.contains('active')) element.classList.remove('active')
 	}
 
 	sections.forEach((section) => {
