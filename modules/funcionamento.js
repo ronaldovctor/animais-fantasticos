@@ -6,12 +6,10 @@ export function initFuncionamento() {
 	const dataAgora = new Date()
 	const diaAgora = dataAgora.getDay()
 	const horarioAgora = dataAgora.getHours()
-	console.log(horarioAgora)
 
 	const semanaAberto = diasSemana.indexOf(diaAgora) !== -1
-	console.log(semanaAberto)
 	const horarioAberto =
 		horarioAgora >= horarioSemana[0] && horarioAgora < horarioSemana[1]
-	console.log(horarioAberto)
+
 	if (semanaAberto && horarioAberto) funcionamento.classList.add('open')
 }

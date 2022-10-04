@@ -11,7 +11,6 @@ export function outsideClick(element, events, callback) {
 	}
 
 	function handleOutsideClick(event) {
-		console.log('outside event...')
 		if (!element.contains(event.target)) {
 			events.forEach((userEvent) => {
 				html.removeEventListener(userEvent, handleOutsideClick)
