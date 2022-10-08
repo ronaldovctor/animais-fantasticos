@@ -4,8 +4,8 @@
   "description": "",
   "main": "script.js",
   "scripts": {
-    "dev": "webpack --mode development --watch ./js/script.js --output-path ./main",
-    "build": "webpack --mode production ./js/script.js --output-path ./main",
+    "dev": "webpack --mode development --watch",
+    "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +20,10 @@
   },
   "homepage": "https://github.com/ronaldovctor/animais-fantasticos#readme",
   "devDependencies": {
+    "@babel/core": "^7.19.3",
+    "@babel/plugin-transform-runtime": "^7.19.1",
+    "@babel/preset-env": "^7.19.3",
+    "babel-loader": "^8.2.5",
     "eslint": "^8.25.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.5.0",
