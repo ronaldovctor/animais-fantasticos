@@ -213,6 +213,12 @@ button {
 .js .grid-section [data-semana].open::after {
   background-color: #3f4;
 }
+.js .grid-section [data-bitcoin] {
+  background-color: #3f4;
+  padding: 0.2rem 0.5rem;
+  font-weight: bold;
+  border-radius: 2px;
+}
 
 @media (max-width: 700px) {
   .grid-container {
