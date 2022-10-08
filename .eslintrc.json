@@ -25,6 +25,7 @@
         ]
     },
     "ignorePatterns": [
-        "**/*.html"
+        "**/*.html",
+        "main.js"
     ]
 }
