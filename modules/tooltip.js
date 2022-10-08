@@ -1,4 +1,4 @@
-export function initTooltip() {
+export default function initTooltip() {
 	const tooltips = document.querySelectorAll('[data-tooltip]')
 
 	tooltips.forEach((item) => {

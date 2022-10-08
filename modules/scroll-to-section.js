@@ -1,4 +1,4 @@
-export function initScroolToSection() {
+export default function initScroolToSection() {
 	const internalLinks = document.querySelectorAll('.js-menu a[href^="#"]')
 
 	function scrollToSection(event) {

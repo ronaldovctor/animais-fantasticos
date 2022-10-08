@@ -1,4 +1,4 @@
-export function initScrollAnimation() {
+export default function initScrollAnimation() {
 	const sections = document.querySelectorAll('[data-anime="scroll"]')
 
 	function animaScroll(element) {

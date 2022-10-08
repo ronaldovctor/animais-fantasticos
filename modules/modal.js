@@ -1,4 +1,4 @@
-export function initModal() {
+export default function initModal() {
 	const botaoAbrir = document.querySelector('[data-modal="open"]')
 	const botaoFechar = document.querySelector('[data-modal="close"]')
 	const containerModal = document.querySelector('[data-modal="container"]')
@@ -13,6 +13,6 @@ export function initModal() {
 	}
 
 	function clickOutModal(event) {
-		event.target == this && toggleModal(event)
+		event.target === this && toggleModal(event)
 	}
 }

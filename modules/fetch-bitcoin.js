@@ -1,4 +1,4 @@
-export function initFetchBitcoin() {
+export default function initFetchBitcoin() {
 	async function fetchBitcoin() {
 		const btcPreco = document.querySelector('[data-bitcoin="preco"]')
 

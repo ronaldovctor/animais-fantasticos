@@ -1,4 +1,4 @@
-export function initAnimaNumeros() {
+export default function initAnimaNumeros() {
 	function startCount() {
 		const numeros = document.querySelectorAll('[data-numero]')
 		numeros.forEach((num) => {

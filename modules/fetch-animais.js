@@ -1,6 +1,6 @@
-import { initAnimaNumeros } from './anima-numeros.js'
+import initAnimaNumeros from './anima-numeros.js'
 
-export function initFetchAnimais() {
+export default function initFetchAnimais() {
 	async function fetchAnimais(url) {
 		try {
 			const animaisResponse = await fetch(url)
