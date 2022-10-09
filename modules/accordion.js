@@ -1,11 +1,22 @@
-export default function initAccordion() {
-	function activeAccordion() {
+export default class Accordion {
+	constructor(list) {
+		this.accordionList = document.querySelectorAll(list)
+	}
+
+	toggleAccordion() {
 		this.classList.toggle('active')
 		this.nextElementSibling.classList.toggle('active')
 	}
 
-	const accordionList = document.querySelectorAll('[data-anime="accordion"] dt')
-	accordionList.forEach((item) => {
-		item.addEventListener('click', activeAccordion)
-	})
+	addAccordionEvent() {
+		this.accordionList.forEach((item) => {
+			item.addEventListener('click', this.toggleAccordion)
+		})
+	}
+
+	init() {
+		if (this.accordionList.length) {
+			this.addAccordionEvent()
+		}
+	}
 }
