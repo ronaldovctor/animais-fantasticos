@@ -1,8 +1,14 @@
-export default function initScroolToSection() {
-	const internalLinks = document.querySelectorAll('.js-menu a[href^="#"]')
+export default class ScrollToSection {
+	constructor(links, options) {
+		this.internalLinks = document.querySelectorAll(links)
+		if (!options) this.options = { behavior: 'smooth', block: 'start' }
+		else this.options = options
 
-	function scrollToSection(event) {
-		event.preventDefaul()
+		this.scrollToSection = this.scrollToSection.bind(this)
+	}
+
+	scrollToSection(event) {
+		event.preventDefault()
 		const href = event.currentTarget.getAttribute('href')
 		const section = document.querySelector(href)
 
@@ -12,13 +18,19 @@ export default function initScroolToSection() {
 		// })
 
 		// alternative
-		section.scrollinToView({
-			behavior: 'smooth',
-			block: 'start',
+		section.scrollIntoView(this.options)
+	}
+
+	addScrollToSectionEvent() {
+		this.internalLinks.forEach((link) => {
+			link.addEventListener('click', (event) => {
+				this.scrollToSection(event)
+			})
 		})
 	}
 
-	internalLinks.forEach((link) => {
-		link.addEventListener('click', scrollToSection)
-	})
+	init() {
+		if (this.internalLinks.length) this.addScrollToSectionEvent()
+		return this
+	}
 }

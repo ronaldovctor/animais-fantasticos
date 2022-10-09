@@ -1,6 +1,6 @@
 import initTabNav from '../modules/tab-nav.js'
 import initAccordion from '../modules/accordion.js'
-import initScroolToSection from '../modules/scroll-to-section.js'
+import ScrollToSection from '../modules/scroll-to-section.js'
 import initScrollAnimation from '../modules/scroll-animation.js'
 import initModal from '../modules/modal.js'
 import initTooltip from '../modules/tooltip.js'
@@ -13,7 +13,8 @@ import initFetchBitcoin from '../modules/fetch-bitcoin.js'
 window.addEventListener('load', () => {
 	initTabNav()
 	initAccordion()
-	initScroolToSection()
+	const scrollToSection = new ScrollToSection('.js .menu a[href^="#"]')
+	scrollToSection.init()
 	initScrollAnimation()
 	initModal()
 	initTooltip()
