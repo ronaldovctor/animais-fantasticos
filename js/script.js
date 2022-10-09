@@ -1,5 +1,5 @@
 import initTabNav from '../modules/tab-nav.js'
-import initAccordion from '../modules/accordion.js'
+import Accordion from '../modules/accordion.js'
 import ScrollToSection from '../modules/scroll-to-section.js'
 import initScrollAnimation from '../modules/scroll-animation.js'
 import initModal from '../modules/modal.js'
@@ -12,9 +12,13 @@ import initFetchBitcoin from '../modules/fetch-bitcoin.js'
 
 window.addEventListener('load', () => {
 	initTabNav()
-	initAccordion()
+
 	const scrollToSection = new ScrollToSection('.js .menu a[href^="#"]')
 	scrollToSection.init()
+
+	const accordion = new Accordion('[data-anime="accordion"] dt')
+	accordion.init()
+
 	initScrollAnimation()
 	initModal()
 	initTooltip()
