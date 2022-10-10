@@ -1,40 +1,41 @@
-export default function initTooltip() {
-	const tooltips = document.querySelectorAll('[data-tooltip]')
+export default class Tooltip {
+	constructor(tooltips) {
+		this.tooltips = document.querySelectorAll(tooltips)
 
-	tooltips.forEach((item) => {
-		item.addEventListener('mouseover', onMouseOver)
-	})
-
-	function onMouseOver(event) {
-		const tooltipBox = createToolTipBox(this)
-		tooltipBox.style.top = `${event.pageY}px`
-		tooltipBox.style.left = `${event.pageX}px`
-
-		onMouseLeave.tooltipBox = tooltipBox
-		this.addEventListener('mousemove', onMouseMove)
-
-		onMouseMove.tooltipBox = tooltipBox
-		// onMouseLeave.element = this
-		this.addEventListener('mouseleave', onMouseLeave)
+		this.onMouseMove = this.onMouseMove.bind(this)
+		this.onMouseLeave = this.onMouseLeave.bind(this)
+		this.onMouseOver = this.onMouseOver.bind(this)
 	}
 
-	const onMouseLeave = {
-		handleEvent() {
-			this.tooltipBox.remove()
-			this.element.removeEventListener('mouseleave', onMouseLeave)
-			this.element.removeEventListener('mousemove', onMouseMove)
-		},
+	onMouseOver({ currentTarget }) {
+		this.createToolTipBox(currentTarget)
+
+		currentTarget.addEventListener('mousemove', this.onMouseMove)
+		currentTarget.addEventListener('mouseleave', this.onMouseLeave)
 	}
 
-	const onMouseMove = {
-		handleEvent(event) {
-			// function called handleEvent inside object runs as function to an eventListener like a normal function
-			this.tooltipBox.style.top = `${event.pageY + 20}px` // add 20px on top to make tooltip not be under the mouse and run the mouseLeave function
-			this.tooltipBox.style.left = `${event.pageX}px`
-		},
+	onMouseLeave({ currentTarget }) {
+		this.tooltipBox.remove()
+		currentTarget.removeEventListener('mouseleave', this.onMouseLeave)
+		currentTarget.removeEventListener('mousemove', this.onMouseMove)
 	}
 
-	function createToolTipBox(element) {
+	onMouseMove(event) {
+		// function called handleEvent inside object runs as function to an eventListener like a normal function
+		this.tooltipBox.style.top = `${event.pageY + 20}px` // add 20px on top to make tooltip not be under the mouse and run the mouseLeave function
+
+		if (event.pageX + 240 > window.innerWidth)
+			this.tooltipBox.style.left = `${event.pageX - 150}px`
+		else this.tooltipBox.style.left = `${event.pageX}px`
+	}
+
+	addTooltipEvents() {
+		this.tooltips.forEach((item) => {
+			item.addEventListener('mouseover', this.onMouseOver)
+		})
+	}
+
+	createToolTipBox(element) {
 		const tooltipBox = document.createElement('div')
 		const text = element.getAttribute('aria-label')
 
@@ -43,6 +44,11 @@ export default function initTooltip() {
 
 		document.body.appendChild(tooltipBox)
 
-		return tooltipBox
+		this.tooltipBox = tooltipBox
+	}
+
+	init() {
+		if (this.tooltips.length) this.addTooltipEvents()
+		return this
 	}
 }
