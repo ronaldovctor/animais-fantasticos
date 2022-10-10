@@ -35,7 +35,9 @@ window.addEventListener('load', () => {
 	initDropdownMenu()
 	initMenuMobile()
 	initFuncionamento()
-	initFetchAnimais()
+
+	initFetchAnimais('../../animaisapi.json', '.numeros-grid')
+
 	initFetchBitcoin()
 })
 
