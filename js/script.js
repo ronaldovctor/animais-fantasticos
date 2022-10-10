@@ -5,7 +5,7 @@ import ScrollAnimation from '../modules/scroll-animation.js'
 import Modal from '../modules/modal.js'
 import Tooltip from '../modules/tooltip.js'
 import DropdownMenu from '../modules/dropdown-menu.js'
-import initMenuMobile from '../modules/menu-mobile.js'
+import MenuMobile from '../modules/menu-mobile.js'
 import initFuncionamento from '../modules/funcionamento.js'
 import initFetchAnimais from '../modules/fetch-animais.js'
 import initFetchBitcoin from '../modules/fetch-bitcoin.js'
@@ -36,7 +36,9 @@ window.addEventListener('load', () => {
 	const dropdownMenu = new DropdownMenu('[data-dropdown]')
 	dropdownMenu.init()
 
-	initMenuMobile()
+	const menuMobile = new MenuMobile('[data-menu="button"]', '[data-menu="list"]')
+	menuMobile.init()
+
 	initFuncionamento()
 
 	initFetchAnimais('../../animaisapi.json', '.numeros-grid')
