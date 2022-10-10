@@ -42,7 +42,7 @@ window.addEventListener('load', () => {
 	const funcionamento = new Funcionamento('[data-semana]')
 	funcionamento.init()
 
-	initFetchAnimais('../../animaisapi.json', '.numeros-grid')
+	initFetchAnimais('./animaisapi.json', '.numeros-grid')
 
 	initFetchBitcoin('https://blockchain.info/ticker', '[data-bitcoin="preco"]')
 })
