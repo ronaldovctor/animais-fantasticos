@@ -5,7 +5,7 @@ export default class ScrollAnimation {
 		this.sections = document.querySelectorAll(sections)
 		this.windowHeight = window.innerHeight * 0.65
 
-		this.checkDistance = debounce(this.checkDistance.bind(this), 150)
+		this.checkDistance = debounce(this.checkDistance.bind(this), 100)
 	}
 
 	static animaScroll(element) {
