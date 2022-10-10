@@ -38,7 +38,7 @@ window.addEventListener('load', () => {
 
 	initFetchAnimais('../../animaisapi.json', '.numeros-grid')
 
-	initFetchBitcoin()
+	initFetchBitcoin('https://blockchain.info/ticker', '[data-bitcoin="preco"]')
 })
 
 window.addEventListener('scroll', initScrollAnimation)
