@@ -24,5 +24,6 @@ export default class TabNav {
 
 	init() {
 		if (this.menu) this.addTabNavEvent()
+		return this
 	}
 }
