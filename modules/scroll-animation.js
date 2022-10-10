@@ -1,17 +1,33 @@
-export default function initScrollAnimation() {
-	const sections = document.querySelectorAll('[data-anime="scroll"]')
+export default class ScrollAnimation {
+	constructor(sections) {
+		this.sections = document.querySelectorAll(sections)
+		this.windowHeight = window.innerHeight * 0.65
 
-	function animaScroll(element) {
+		this.addAnimaScroll = this.addAnimaScroll.bind(this)
+	}
+
+	static animaScroll(element) {
 		element.classList.add('active')
 	}
 
-	function removeAnima(element) {
+	static removeAnimaScroll(element) {
 		if (element.classList.contains('active')) element.classList.remove('active')
 	}
 
-	sections.forEach((section) => {
-		const windowHeight = window.innerHeight * 0.65
-		const sectionTop = section.getBoundingClientRect().top
-		sectionTop < windowHeight ? animaScroll(section) : removeAnima(section)
-	})
+	addAnimaScroll() {
+		this.sections.forEach((section) => {
+			const sectionTop = section.getBoundingClientRect().top
+			sectionTop < this.windowHeight
+				? this.constructor.animaScroll(section)
+				: this.constructor.removeAnimaScroll(section)
+		})
+	}
+
+	init() {
+		if (this.sections.length) {
+			this.addAnimaScroll()
+			window.addEventListener('scroll', this.addAnimaScroll)
+		}
+		return this
+	}
 }
