@@ -2,7 +2,7 @@ import TabNav from '../modules/tab-nav.js'
 import Accordion from '../modules/accordion.js'
 import ScrollToSection from '../modules/scroll-to-section.js'
 import initScrollAnimation from '../modules/scroll-animation.js'
-import initModal from '../modules/modal.js'
+import Modal from '../modules/modal.js'
 import initTooltip from '../modules/tooltip.js'
 import initDropdownMenu from '../modules/dropdown-menu.js'
 import initMenuMobile from '../modules/menu-mobile.js'
@@ -21,7 +21,14 @@ window.addEventListener('load', () => {
 	accordion.init()
 
 	initScrollAnimation()
-	initModal()
+
+	const modal = new Modal(
+		'[data-modal="open"]',
+		'[data-modal="close"]',
+		'[data-modal="container"]'
+	)
+	modal.init()
+
 	initTooltip()
 	initDropdownMenu()
 	initMenuMobile()
