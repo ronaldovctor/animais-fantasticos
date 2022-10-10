@@ -1,17 +1,47 @@
-export default function initScrollAnimation() {
-	const sections = document.querySelectorAll('[data-anime="scroll"]')
+export default class ScrollAnimation {
+	constructor(sections) {
+		this.sections = document.querySelectorAll(sections)
+		this.windowHeight = window.innerHeight * 0.65
 
-	function animaScroll(element) {
+		this.checkDistance = this.checkDistance.bind(this)
+	}
+
+	static animaScroll(element) {
 		element.classList.add('active')
 	}
 
-	function removeAnima(element) {
+	static removeAnimaScroll(element) {
 		if (element.classList.contains('active')) element.classList.remove('active')
 	}
 
-	sections.forEach((section) => {
-		const windowHeight = window.innerHeight * 0.65
-		const sectionTop = section.getBoundingClientRect().top
-		sectionTop < windowHeight ? animaScroll(section) : removeAnima(section)
-	})
+	getDistance() {
+		this.distance = [...this.sections].map((item) => {
+			const offset = Math.floor(item.offsetTop - this.windowHeight)
+			return {
+				element: item,
+				offset,
+			}
+		})
+	}
+
+	checkDistance() {
+		this.distance.forEach((item) => {
+			window.scrollY > item.offset
+				? this.constructor.animaScroll(item.element)
+				: this.constructor.removeAnimaScroll(item.element)
+		})
+	}
+
+	init() {
+		if (this.sections.length) {
+			this.getDistance()
+			this.checkDistance()
+			window.addEventListener('scroll', this.checkDistance)
+		}
+		return this
+	}
+
+	stop() {
+		window.removeEventListener('scroll', this.checkDistance)
+	}
 }

@@ -1,7 +1,7 @@
 import TabNav from '../modules/tab-nav.js'
 import Accordion from '../modules/accordion.js'
 import ScrollToSection from '../modules/scroll-to-section.js'
-import initScrollAnimation from '../modules/scroll-animation.js'
+import ScrollAnimation from '../modules/scroll-animation.js'
 import Modal from '../modules/modal.js'
 import Tooltip from '../modules/tooltip.js'
 import initDropdownMenu from '../modules/dropdown-menu.js'
@@ -20,7 +20,8 @@ window.addEventListener('load', () => {
 	const accordion = new Accordion('[data-anime="accordion"] dt')
 	accordion.init()
 
-	initScrollAnimation()
+	const scrollAnima = new ScrollAnimation('[data-anime="scroll"]')
+	scrollAnima.init()
 
 	const modal = new Modal(
 		'[data-modal="open"]',
@@ -40,5 +41,3 @@ window.addEventListener('load', () => {
 
 	initFetchBitcoin('https://blockchain.info/ticker', '[data-bitcoin="preco"]')
 })
-
-window.addEventListener('scroll', initScrollAnimation)
