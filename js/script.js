@@ -3,7 +3,7 @@ import Accordion from '../modules/accordion.js'
 import ScrollToSection from '../modules/scroll-to-section.js'
 import initScrollAnimation from '../modules/scroll-animation.js'
 import Modal from '../modules/modal.js'
-import initTooltip from '../modules/tooltip.js'
+import Tooltip from '../modules/tooltip.js'
 import initDropdownMenu from '../modules/dropdown-menu.js'
 import initMenuMobile from '../modules/menu-mobile.js'
 import initFuncionamento from '../modules/funcionamento.js'
@@ -29,7 +29,9 @@ window.addEventListener('load', () => {
 	)
 	modal.init()
 
-	initTooltip()
+	const tooltip = new Tooltip('[data-tooltip]')
+	tooltip.init()
+
 	initDropdownMenu()
 	initMenuMobile()
 	initFuncionamento()
