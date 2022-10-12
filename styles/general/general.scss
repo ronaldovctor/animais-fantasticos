@@ -185,6 +185,13 @@ button {
 			font-family: 'IBM Plex Mono', monospace;
 		}
 	}
+
+	.arrow-black {
+		background: url('../../img/arrow-black.svg') no-repeat center center;
+		display: inline-block;
+		width: 8px;
+		height: 10px;
+	}
 }
 
 .js .grid-section {
@@ -208,14 +215,18 @@ button {
 	[data-anime='accordion'] {
 		dt {
 			&::after {
-				content: '⯆';
+				content: '';
+				width: 10px;
+				height: 10px;
 				display: inline-block;
+				background: url('../../img/arrow-red.svg') no-repeat center center;
+				rotate: 90deg;
 				margin-left: 0.5rem;
 				transition: 0.3s;
 			}
 
 			&.active::after {
-				rotate: 180deg;
+				rotate: -90deg;
 				transform: translateY(-15%);
 			}
 		}
@@ -281,6 +292,10 @@ button {
 		.grid-section {
 			grid-template-columns: 100px 1fr;
 			gap: 10px;
+
+			.titulo {
+				font-size: 3.5rem;
+			}
 
 			&.animais .animais-lista {
 				grid-column: 1;
