@@ -9,6 +9,7 @@ import MenuMobile from '../modules/menu-mobile.js'
 import Funcionamento from '../modules/funcionamento.js'
 import initFetchAnimais from '../modules/fetch-animais.js'
 import initFetchBitcoin from '../modules/fetch-bitcoin.js'
+import SlideNav from '../modules/slide/slide-nav.js'
 
 window.addEventListener('load', () => {
 	const tabNav = new TabNav('[data-tab="menu"] li', '[data-tab="content"] section')
@@ -45,4 +46,8 @@ window.addEventListener('load', () => {
 	initFetchAnimais('./animaisapi.json', '.numeros-grid')
 
 	initFetchBitcoin('https://blockchain.info/ticker', '[data-bitcoin="preco"]')
+
+	const slide = new SlideNav('.slide', '.slide-wrapper')
+	slide.init()
+	slide.addControl('.custom-controls')
 })
