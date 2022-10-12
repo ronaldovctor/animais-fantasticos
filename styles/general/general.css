@@ -161,7 +161,7 @@ button {
   font-family: "IBM Plex Mono", monospace;
 }
 .grid-container .arrow-black {
-  background: url("../../img/arrow-black.svg") no-repeat center center;
+  background: url("../img/arrow-black.svg") no-repeat center center;
   display: inline-block;
   width: 8px;
   height: 10px;
@@ -186,7 +186,7 @@ button {
   width: 10px;
   height: 10px;
   display: inline-block;
-  background: url("../../img/arrow-red.svg") no-repeat center center;
+  background: url("../img/arrow-red.svg") no-repeat center center;
   rotate: 90deg;
   margin-left: 0.5rem;
   transition: 0.3s;
