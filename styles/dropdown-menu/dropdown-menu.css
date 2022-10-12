@@ -47,4 +47,11 @@
     opacity: initial;
     transform: initial;
   }
+}
+@media (max-width: 700px) {
+  [data-dropdown] .dropdown-menu .dropdown-menu {
+    display: block !important;
+    -webkit-animation: showUp 0.3s forwards;
+            animation: showUp 0.3s forwards;
+  }
 }/*# sourceMappingURL=dropdown-menu.css.map */

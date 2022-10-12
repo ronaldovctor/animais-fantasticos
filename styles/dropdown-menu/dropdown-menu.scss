@@ -42,4 +42,11 @@
 			transform: initial;
 		}
 	}
+
+	@media (max-width: 700px) {
+		.dropdown-menu .dropdown-menu {
+			display: block !important;
+			animation: showUp 0.3s forwards;
+		}
+	}
 }
